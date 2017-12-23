@@ -1,0 +1,13 @@
+:: files ::
+Bell.qs
+:: references ::
+D:\Git\Q#\Bell\packages\Microsoft.Quantum.Canon.0.1.1712.901-preview\lib\net461\Microsoft.Quantum.Canon.dll
+D:\Git\Q#\Bell\packages\Microsoft.Quantum.Development.Kit.0.1.1712.901-preview\lib\net461\Microsoft.Quantum.MetaData.dll
+D:\Git\Q#\Bell\packages\Microsoft.Quantum.Development.Kit.0.1.1712.901-preview\lib\net461\Microsoft.Quantum.Primitives.dll
+D:\Git\Q#\Bell\packages\Microsoft.Quantum.Development.Kit.0.1.1712.901-preview\lib\net461\Microsoft.Quantum.Simulation.Common.dll
+D:\Git\Q#\Bell\packages\Microsoft.Quantum.Development.Kit.0.1.1712.901-preview\lib\net461\Microsoft.Quantum.Simulation.Core.dll
+D:\Git\Q#\Bell\packages\Microsoft.Quantum.Development.Kit.0.1.1712.901-preview\lib\net461\Microsoft.Quantum.Simulation.QCTraceSimulatorRuntime.dll
+D:\Git\Q#\Bell\packages\Microsoft.Quantum.Development.Kit.0.1.1712.901-preview\lib\net461\Microsoft.Quantum.Simulation.Simulators.dll
+D:\Git\Q#\Bell\packages\System.ValueTuple.4.4.0\lib\net461\System.ValueTuple.dll
+:: command ::
+"D:\Git\Q#\Bell\packages\Microsoft.Quantum.Development.Kit.0.1.1712.901-preview\build\..\tools\qsc\qsc.exe" --input "Bell.qs" --references "D:\Git\Q#\Bell\packages\Microsoft.Quantum.Canon.0.1.1712.901-preview\lib\net461\Microsoft.Quantum.Canon.dll" "D:\Git\Q#\Bell\packages\Microsoft.Quantum.Development.Kit.0.1.1712.901-preview\lib\net461\Microsoft.Quantum.MetaData.dll" "D:\Git\Q#\Bell\packages\Microsoft.Quantum.Development.Kit.0.1.1712.901-preview\lib\net461\Microsoft.Quantum.Primitives.dll" "D:\Git\Q#\Bell\packages\Microsoft.Quantum.Development.Kit.0.1.1712.901-preview\lib\net461\Microsoft.Quantum.Simulation.Common.dll" "D:\Git\Q#\Bell\packages\Microsoft.Quantum.Development.Kit.0.1.1712.901-preview\lib\net461\Microsoft.Quantum.Simulation.Core.dll" "D:\Git\Q#\Bell\packages\Microsoft.Quantum.Development.Kit.0.1.1712.901-preview\lib\net461\Microsoft.Quantum.Simulation.QCTraceSimulatorRuntime.dll" "D:\Git\Q#\Bell\packages\Microsoft.Quantum.Development.Kit.0.1.1712.901-preview\lib\net461\Microsoft.Quantum.Simulation.Simulators.dll" "D:\Git\Q#\Bell\packages\System.ValueTuple.4.4.0\lib\net461\System.ValueTuple.dll" --outputpath obj\qsharp\src\

@@ -1,0 +1,4 @@
+:: files ::
+Bell.qs
+:: command ::
+"D:\Git\Q#\Bell\packages\Microsoft.Quantum.Development.Kit.0.1.1712.901-preview\build\..\tools\qdocgen\docgen.exe" --input "Bell.qs" --doc-output obj\qsharp\docs\
