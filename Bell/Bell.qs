@@ -23,7 +23,7 @@
           mutable numOnes = 0;              // By default, Q# variables are immutable unless defined specifically as mutable
           using (qubits = Qubit[1])         // The 'using' keyword allocates an array of Qubits for this code block
           {
-            for (test in 1..count)          // Q# loops always iterate through a range 
+            for (test in 1..count)          // Q# loops always iterate through a range - this is the only 'for' loop type available in Q#
             {
               Set (initial, qubits[0]);     
 
