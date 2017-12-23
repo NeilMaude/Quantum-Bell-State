@@ -27,7 +27,9 @@
             {
               Set (initial, qubits[0]);     
 
-              X(qubits[0]);                 // Flip the qubit before we measure it...
+              //X(qubits[0]);                 // Flip the qubit before we measure it ... this is a second classical measurement
+              H(qubits[0]);                   // The qubit is now in superposition, so half way between 0 and 1 - statistically will measure 
+                                              // out in either state roughly half the time (testing shows variable results)
               let res = M(qubits[0]);
 
               // Count the number of ones we saw

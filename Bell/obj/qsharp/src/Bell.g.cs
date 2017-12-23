@@ -80,7 +80,7 @@ namespace Quantum.Bell
     {
         public BellTest(IOperationFactory m) : base(m)
         {
-            this.Dependencies = new Type[] { typeof(Microsoft.Quantum.Primitive.Allocate), typeof(Microsoft.Quantum.Primitive.M), typeof(Microsoft.Quantum.Primitive.Release), typeof(Quantum.Bell.Set), typeof(Microsoft.Quantum.Primitive.X) };
+            this.Dependencies = new Type[] { typeof(Microsoft.Quantum.Primitive.Allocate), typeof(Microsoft.Quantum.Primitive.H), typeof(Microsoft.Quantum.Primitive.M), typeof(Microsoft.Quantum.Primitive.Release), typeof(Quantum.Bell.Set) };
         }
 
         public override Type[] Dependencies
@@ -93,6 +93,14 @@ namespace Quantum.Bell
             get
             {
                 return this.Factory.Get<Allocate, Microsoft.Quantum.Primitive.Allocate>();
+            }
+        }
+
+        protected IUnitary<Qubit> MicrosoftQuantumPrimitiveH
+        {
+            get
+            {
+                return this.Factory.Get<IUnitary<Qubit>, Microsoft.Quantum.Primitive.H>();
             }
         }
 
@@ -120,14 +128,6 @@ namespace Quantum.Bell
             }
         }
 
-        protected IUnitary<Qubit> MicrosoftQuantumPrimitiveX
-        {
-            get
-            {
-                return this.Factory.Get<IUnitary<Qubit>, Microsoft.Quantum.Primitive.X>();
-            }
-        }
-
         public override Func<(Int64,Result), (Int64,Int64)> Body
         {
             get => (_args) =>
@@ -148,16 +148,18 @@ namespace Quantum.Bell
                     {
 #line 28 "D:\\Git\\Q#\\Bell\\Bell\\Bell.qs"
                         Set.Apply((initial, qubits[0L]));
-#line 30 "D:\\Git\\Q#\\Bell\\Bell\\Bell.qs"
-                        MicrosoftQuantumPrimitiveX.Apply(qubits[0L]);
-                        // Flip the qubit before we measure it...
+                        //X(qubits[0]);                 // Flip the qubit before we measure it ... this is a second classical measurement
 #line 31 "D:\\Git\\Q#\\Bell\\Bell\\Bell.qs"
+                        MicrosoftQuantumPrimitiveH.Apply(qubits[0L]);
+                        // The qubit is now in superposition, so half way between 0 and 1 - statistically will measure 
+                        // out in either state roughly half the time.
+#line 33 "D:\\Git\\Q#\\Bell\\Bell\\Bell.qs"
                         var res = M.Apply<Result>(qubits[0L]);
                         // Count the number of ones we saw
-#line 34 "D:\\Git\\Q#\\Bell\\Bell\\Bell.qs"
+#line 36 "D:\\Git\\Q#\\Bell\\Bell\\Bell.qs"
                         if ((res == Result.One))
                         {
-#line 36 "D:\\Git\\Q#\\Bell\\Bell\\Bell.qs"
+#line 38 "D:\\Git\\Q#\\Bell\\Bell\\Bell.qs"
                             numOnes = (numOnes + 1L);
                             // The 'set' keyword is used to assign mutable variable values 
                             // (don't cofuse with the 'Set' operation here) 
@@ -165,7 +167,7 @@ namespace Quantum.Bell
                         }
                     }
 
-#line 40 "D:\\Git\\Q#\\Bell\\Bell\\Bell.qs"
+#line 42 "D:\\Git\\Q#\\Bell\\Bell\\Bell.qs"
                     Set.Apply((Result.Zero, qubits[0L]));
                     // This call to 'Set' is to return the Qubit to a known state when done 
                     // - as required by the 'using' statement
@@ -175,7 +177,7 @@ namespace Quantum.Bell
 #line hidden
                     __result__ = ((count - numOnes), numOnes);
                     // Return number of times we saw a |0> and number of times we saw a |1>
-#line 44 "D:\\Git\\Q#\\Bell\\Bell\\Bell.qs"
+#line 46 "D:\\Git\\Q#\\Bell\\Bell\\Bell.qs"
                     return __result__;
                 }
                 finally
