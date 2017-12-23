@@ -27,6 +27,7 @@
             {
               Set (initial, qubits[0]);     
 
+              X(qubits[0]);                 // Flip the qubit before we measure it...
               let res = M(qubits[0]);
 
               // Count the number of ones we saw
