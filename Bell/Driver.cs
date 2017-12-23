@@ -16,9 +16,9 @@ namespace Quantum.Bell
           var res = BellTest.Run(sim, 1000, initial).Result;              // 'Run' is the method to run the quantum simulation
                                                                           // 'Run' is asynchronous, but fetching the 'Result' property blocks
                                                                           // execution until the task completes and makes this synchronous.
-          var (numZeros, numOnes) = res;
+          var (numZeros, numOnes, agree) = res;
           System.Console.WriteLine(
-            $"Init:{initial,-4} 0s={numZeros,-4} 1s={numOnes,-4}");
+            $"Init:{initial,-4} 0s={numZeros,-4} 1s={numOnes,-4} agree={agree,-4}");
         }
       }
       System.Console.WriteLine("Press any key to continue...");
